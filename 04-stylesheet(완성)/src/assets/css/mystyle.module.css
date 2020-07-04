@@ -1,0 +1,28 @@
+/** CSS파일에서의 이미지 참조는 CSS파일을 기준으로 한 상대경로 */
+/** 클래스 이름을 카멜표기법으로 지정해야 함 */
+.myCssBox {
+    background-image: url(../img/sample.png);
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    border: 5px solid #eee;
+}
+
+/** js의 import에 명시한 참조변수에 속하지 않는 독립 클래스 */
+:global .myBorderBox {
+    background-color: #ff05;
+    border: 10px solid #f0f;
+    width: 300px;
+    height: 300px;
+}
+
+/** 그 밖의 클래스 */
+.size {
+    width: 100px;
+    height: 100px;
+}
+
+.bg {
+    background-color: #ece7f8;
+    border: 1px solid #004080;
+}

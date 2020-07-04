@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="//unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    async function getList() {
+        try {
+            console.group("Ajax");
+            const result = await axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=0a8c4202385d4ec1bb93b7e277b3c51f', {
+                // GET 파라미터들
+                params: {
+                    category: "business"
+                },
+                // HTTP헤더(여기서는 사용 안함)
+                headers: {              
+                }
+            });
+            // 정상 데이터 처리
+            console.log(result.data);
+            console.groupEnd();
+            console.log("프로그램 종료");
+        } catch (e) {
+            // 에러가 발생한 경우 호출되는 부분
+            console.log(e.response.status);
+            console.log(e.response.data);
+        }
+    }
+
+    getList();
+    </script>
+</body>
+</html>

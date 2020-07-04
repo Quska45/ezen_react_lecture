@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="//unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        console.group("Ajax");
+        console.log("로딩중...");
+        axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=0a8c4202385d4ec1bb93b7e277b3c51f', {
+            // GET 파라미터들
+            params: {
+                category: "business"
+            },
+            // HTTP헤더(여기서는 사용 안함)
+            headers: {              
+            }
+        })
+        .then(function(response) {
+            // 성공시 --> 서버에서 전달되는 JSON은 data로 접근
+            console.log("Ajax 연동 성공");
+            console.log(response.data);
+        })
+        .catch(function(error) {
+            // 에러 발생시
+            console.log(error.response.status);
+            console.log(error.response.data)
+        })
+        .finally(function() {
+            // 처리 완료시
+            console.log("로딩완료...");
+            console.groupEnd();
+        });
+
+        
+        console.log("프로그램 종료~!!!");
+    </script>
+</body>
+</html>
